@@ -63,7 +63,7 @@ We will use Free Tier for this purpose but process is similar for any tier.
 ### Setting up a whoami Test Site
 #### Option 1 : If you don't have a domain at this point
 - Run the script to setup whoami test site to access via public ip
-  - `cd ~/apps/scripts`
+  - `cd ~/apps/scripts/infra/bootstrap`
   - `./whoami-test-site-without-domain.sh`
   - Watch Traefik logs (important): `docker logs -f traefik`
     - This should not return any error, if it does, then it would need attention

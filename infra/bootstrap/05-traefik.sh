@@ -108,4 +108,3 @@ echo "Starting Traefik..."
 docker compose up -d
 
 echo "=== [05-traefik] Traefik setup completed ==="
-echo "Verify with: curl -I https://your-domain"
