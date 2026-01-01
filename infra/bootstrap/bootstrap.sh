@@ -30,6 +30,10 @@ echo ">>> Step 4: Swap configuration"
 "$SCRIPT_DIR/04-swap.sh"
 
 echo
+echo ">>> Step 5: Reverse proxy (Traefik) configuration"
+"$SCRIPT_DIR/05-traefik.sh"
+
+echo
 echo "=========================================="
 echo " Bootstrap completed successfully ✅"
 echo

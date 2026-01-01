@@ -25,4 +25,14 @@ else
   echo "User added to docker group. You must re-login or run 'newgrp docker'."
 fi
 
+echo "=== [02-docker] Creating shared Docker network (web) ==="
+
+# Create shared Docker network for reverse proxy if it doesn't exist
+if docker network inspect web >/dev/null 2>&1; then
+  echo "Docker network 'web' already exists."
+else
+  docker network create web
+  echo "Docker network 'web' created."
+fi
+
 echo "=== [02-docker] Docker setup completed ==="
