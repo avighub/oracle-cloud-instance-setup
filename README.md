@@ -51,8 +51,8 @@ We will use Free Tier for this purpose but process is similar for any tier.
 - SSH using private key: `ssh -i your-key.key ubuntu@<PUBLIC_IP>`
 - `cd ~/apps/scripts`
 - Clone repository: `git clone https://github.com/avighub/oracle-cloud-instance-setup.git`
-- Go to bootstrap scripts dir: `cd ~/apps/scripts/infra/bootstrap`
-- Make the script executable: `chmod +x bootstrap/*.sh`
+- Go to bootstrap scripts dir: `cd ~/apps/scripts/oracle-cloud-instance-setup/infra/bootstrap`
+- Make the script executable: `chmod +x *.sh`
 - Update `ACME_EMAIL` with your valid email in `05-traefik.sh` file
   - Run command to update: `nano 05-traefik.sh`
 - Run `./bootstrap.sh`

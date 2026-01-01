@@ -28,10 +28,10 @@ fi
 echo "=== [02-docker] Creating shared Docker network (web) ==="
 
 # Create shared Docker network for reverse proxy if it doesn't exist
-if docker network inspect web >/dev/null 2>&1; then
+if sudo docker network inspect web >/dev/null 2>&1; then
   echo "Docker network 'web' already exists."
 else
-  docker network create web
+  sudo docker network create web
   echo "Docker network 'web' created."
 fi
 
