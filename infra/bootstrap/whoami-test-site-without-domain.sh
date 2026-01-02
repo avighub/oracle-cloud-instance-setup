@@ -77,6 +77,9 @@ services:
     labels:
       - "traefik.enable=true"
 
+      # 🔑 tell Traefik which Docker network to use
+      - "traefik.docker.network=web"
+
       # 🔑 ACCEPT ANY HOST (IP, hostname, anything)
       - "traefik.http.routers.whoami-test-site.rule=HostRegexp(`{host:.+}`)"
       - "traefik.http.routers.whoami-test-site.entrypoints=websecure"
