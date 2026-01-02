@@ -99,7 +99,6 @@ services:
 
        # 🔑 tell Traefik which Docker network to use
       - "traefik.docker.network=web"
-
       - "traefik.http.routers.domain.rule=Host($DOMAIN)"
       - "traefik.http.routers.domain.entrypoints=websecure"
       - "traefik.http.routers.domain.tls=true"
