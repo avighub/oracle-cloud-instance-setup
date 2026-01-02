@@ -4,7 +4,7 @@ set -e
 echo "=== [whoami-test-site] Setting up generic site (IP-based test) ==="
 
 # -------- CONFIG --------
-APP_DIR="$HOME/apps/whoami-test-site"
+APP_DIR="$HOME/apps/websites/whoami-test-site"
 
 if [[ ! -d "$APP_DIR" ]]; then
   echo "Creating whoami-test-site directory: $APP_DIR"
@@ -81,7 +81,7 @@ services:
       - "traefik.docker.network=web"
 
       # 🔑 ACCEPT ANY HOST (IP, hostname, anything)
-      - "traefik.http.routers.whoami-test-site.rule=HostRegexp(\{host:.+\})"
+      - "traefik.http.routers.whoami-test-site.rule=HostRegexp(`^.+$`)"
       - "traefik.http.routers.whoami-test-site.entrypoints=websecure"
       - "traefik.http.routers.whoami-test-site.tls=true"
       - "traefik.http.services.whoami-test-site.loadbalancer.server.port=80"
