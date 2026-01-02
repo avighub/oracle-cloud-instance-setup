@@ -13,8 +13,6 @@ else
   echo "whoami-test-site directory already exists: $APP_DIR"
 fi
 
-NETWORK_NAME="web"
-CONTAINER_NAME="whoami-test-site"
 # ------------------------
 
 echo "App directory: $APP_DIR"
@@ -68,7 +66,7 @@ cat > docker-compose.yml <<'EOF'
 services:
   whoami:
     image: nginx:alpine
-    container_name: $CONTAINER_NAME
+    container_name: whoami-test-site
     restart: unless-stopped
 
     volumes:
@@ -87,10 +85,10 @@ services:
       - "traefik.http.services.whoami-test-site.loadbalancer.server.port=80"
 
     networks:
-      - $NETWORK_NAME
+      - web
 
 networks:
-  $NETWORK_NAME:
+  web:
     external: true
 EOF
 
