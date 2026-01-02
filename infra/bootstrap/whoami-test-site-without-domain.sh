@@ -81,7 +81,7 @@ services:
       - "traefik.docker.network=web"
 
       # 🔑 ACCEPT ANY HOST (IP, hostname, anything)
-      - "traefik.http.routers.whoami-test-site.rule=HostRegexp(`{host:.+}`)"
+      - "traefik.http.routers.whoami-test-site.rule=HostRegexp({host:.+})"
       - "traefik.http.routers.whoami-test-site.entrypoints=websecure"
       - "traefik.http.routers.whoami-test-site.tls=true"
       - "traefik.http.services.whoami-test-site.loadbalancer.server.port=80"
