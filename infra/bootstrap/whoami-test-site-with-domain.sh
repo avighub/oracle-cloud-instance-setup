@@ -1,20 +1,26 @@
 #!/bin/bash
 set -e
 
-DOMAIN="brightio.in"
+DOMAIN="add-your-domain-here"  # <-- CHANGE THIS to your test domain
 NETWORK_NAME="web"
 CONTAINER_NAME="whoami-test-site"
 
 echo "=== [whoami-test-site] Setting up whoami-test-site for $DOMAIN ==="
 
 # -------- CONFIG --------
-APP_DIR="$HOME/apps/whoami-test-site"
+APP_DIR="$HOME/apps/websites/whoami-test-site"
 
 if [[ ! -d "$APP_DIR" ]]; then
   echo "Creating whoami-test-site directory: $APP_DIR"
   mkdir -p "$APP_DIR"
 else
   echo "Whoami-test-site directory already exists: $APP_DIR"
+fi
+
+# Validate DOMAIN
+if [[ "$DOMAIN" == "add-your-domain-here" ]] || [[ -z "$DOMAIN" ]]; then
+  echo "ERROR: DOMAIN is not set to a valid domain. Please update  DOMAIN to your actual domain in whoami-test-site-with-domain.sh"
+  exit 1
 fi
 # ------------------------
 
@@ -66,8 +72,8 @@ if [[ ! -f html/index.html ]]; then
 </head>
 <body>
   <div class="box">
-    <h1>🚀 Brightio</h1>
-    <p>Learning platform coming soon</p>
+    <h1>🚀 whoami-test-site</h1>
+    <p>Your Website is working correctly. Replace this with original website content.</p>
   </div>
 </body>
 </html>
@@ -78,7 +84,7 @@ fi
 
 # Write docker-compose.yml
 echo "Writing docker-compose.yml"
-cat > docker-compose.yml <<EOF
+cat > docker-compose.yml <<'EOF'
 services:
   whoami:
     image: nginx:alpine

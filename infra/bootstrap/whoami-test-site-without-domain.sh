@@ -62,6 +62,7 @@ else
 fi
 
 # Create docker-compose.yml
+echo "Writing docker-compose.yml"
 cat > docker-compose.yml <<'EOF'
 services:
   whoami:
