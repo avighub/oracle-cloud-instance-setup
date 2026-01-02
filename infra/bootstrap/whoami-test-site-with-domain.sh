@@ -84,7 +84,7 @@ fi
 
 # Write docker-compose.yml
 echo "Writing docker-compose.yml"
-cat > docker-compose.yml <<'EOF'
+cat > docker-compose.yml <<EOF
 services:
   whoami:
     image: nginx:alpine
@@ -99,7 +99,7 @@ services:
 
        # 🔑 tell Traefik which Docker network to use
       - "traefik.docker.network=web"
-      
+
       - "traefik.http.routers.domain.rule=Host($DOMAIN)"
       - "traefik.http.routers.domain.entrypoints=websecure"
       - "traefik.http.routers.domain.tls=true"
