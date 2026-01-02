@@ -35,7 +35,7 @@ cd "$APP_DIR"
 # Write index.html (only if not exists)
 if [[ ! -f html/index.html ]]; then
   echo "Creating index.html"
-  cat > html/index.html <<'EOF'
+  cat > html/index.html <<EOF
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,12 +96,15 @@ services:
 
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.brightio.rule=Host(\`$DOMAIN\`)"
-      - "traefik.http.routers.brightio.entrypoints=websecure"
-      - "traefik.http.routers.brightio.tls=true"
-      - "traefik.http.routers.brightio.tls.certresolver=letsencrypt"
-      - "traefik.http.services.brightio.loadbalancer.server.port=80"
 
+       # 🔑 tell Traefik which Docker network to use
+      - "traefik.docker.network=web"
+      
+      - "traefik.http.routers.domain.rule=Host($DOMAIN)"
+      - "traefik.http.routers.domain.entrypoints=websecure"
+      - "traefik.http.routers.domain.tls=true"
+      - "traefik.http.routers.domain.tls.certresolver=letsencrypt"
+      - "traefik.http.services.domain.loadbalancer.server.port=80"
     networks:
       - $NETWORK_NAME
 
