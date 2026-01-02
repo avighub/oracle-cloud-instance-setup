@@ -64,7 +64,7 @@ else
 fi
 
 # Create docker-compose.yml
-cat > docker-compose.yml <<EOF
+cat > docker-compose.yml <<'EOF'
 services:
   whoami:
     image: nginx:alpine
