@@ -9,7 +9,7 @@ CONTAINER_NAME=$ROUTER_NAME-whoami
 echo "=== [whoami-test-site] Setting up whoami-test-site for $DOMAIN ==="
 
 # -------- CONFIG --------
-APP_DIR="$HOME/apps/websites/whoami-test-site"
+APP_DIR="$HOME/apps/websites/$ROUTER_NAME"
 
 if [[ ! -d "$APP_DIR" ]]; then
   echo "Creating whoami-test-site directory: $APP_DIR"
