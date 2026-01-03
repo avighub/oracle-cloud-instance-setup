@@ -4,6 +4,7 @@ set -e
 DOMAIN="add-your-domain-here"  # <-- CHANGE THIS to your test domain
 NETWORK_NAME="web"
 CONTAINER_NAME="whoami-test-site"
+ROUTER_NAME=$(echo "$DOMAIN" | tr '.' '-' | tr '[:upper:]' '[:lower:]')
 
 echo "=== [whoami-test-site] Setting up whoami-test-site for $DOMAIN ==="
 
@@ -40,7 +41,7 @@ if [[ ! -f html/index.html ]]; then
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Brightio</title>
+  <title>$DOMAIN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
@@ -99,11 +100,11 @@ services:
 
       # 🔑 tell Traefik which Docker network to use
       - "traefik.docker.network=web"
-      - "traefik.http.routers.domain.rule=Host(\'$DOMAIN\')"
-      - "traefik.http.routers.domain.entrypoints=websecure"
-      - "traefik.http.routers.domain.tls=true"
-      - "traefik.http.routers.domain.tls.certresolver=letsencrypt"
-      - "traefik.http.services.domain.loadbalancer.server.port=80"
+      - "traefik.http.routers.$ROUTER_NAME.rule=Host(\'$DOMAIN\')"
+      - "traefik.http.routers.$ROUTER_NAME.entrypoints=websecure"
+      - "traefik.http.routers.$ROUTER_NAME.tls=true"
+      - "traefik.http.routers.$ROUTER_NAME.tls.certresolver=letsencrypt"
+      - "traefik.http.services.$ROUTER_NAME.loadbalancer.server.port=80"
     networks:
       - $NETWORK_NAME
 
