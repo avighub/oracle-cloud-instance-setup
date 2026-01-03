@@ -53,6 +53,8 @@ entryPoints:
   web:
     address: ":80"
     http:
+      middlewares:
+        - acme-bypass
       redirections:
         entryPoint:
           to: websecure
