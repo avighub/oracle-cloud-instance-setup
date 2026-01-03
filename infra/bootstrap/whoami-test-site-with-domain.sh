@@ -100,7 +100,7 @@ services:
 
       # 🔑 tell Traefik which Docker network to use
       - "traefik.docker.network=web"
-      - "traefik.http.routers.$ROUTER_NAME.rule=Host(\'$DOMAIN\')"
+      - "traefik.http.routers.$ROUTER_NAME.rule=Host(\`$DOMAIN\`)"
       - "traefik.http.routers.$ROUTER_NAME.entrypoints=websecure"
       - "traefik.http.routers.$ROUTER_NAME.tls=true"
       - "traefik.http.routers.$ROUTER_NAME.tls.certresolver=letsencrypt"
