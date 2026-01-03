@@ -3,8 +3,8 @@ set -e
 
 DOMAIN="add-your-domain-here"  # <-- CHANGE THIS to your test domain
 NETWORK_NAME="web"
-CONTAINER_NAME="whoami-test-site"
 ROUTER_NAME=$(echo "$DOMAIN" | tr '.' '-' | tr '[:upper:]' '[:lower:]')
+CONTAINER_NAME=$ROUTER_NAME-whoami
 
 echo "=== [whoami-test-site] Setting up whoami-test-site for $DOMAIN ==="
 
