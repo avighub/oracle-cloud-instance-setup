@@ -100,11 +100,19 @@ services:
 
       # 🔑 tell Traefik which Docker network to use
       - "traefik.docker.network=web"
+
+      # 🔑 HTTPS ROUTER
       - "traefik.http.routers.$ROUTER_NAME.rule=Host(\`$DOMAIN\`)"
       - "traefik.http.routers.$ROUTER_NAME.entrypoints=websecure"
+
+      # 🔑 HTTP ROUTER
+      - "traefik.http.routers.$ROUTER_NAME-http.rule=Host(\`$DOMAIN\`)"
+      - "traefik.http.routers.$ROUTER_NAME-http.entrypoints=web"
+
       - "traefik.http.routers.$ROUTER_NAME.tls=true"
       - "traefik.http.routers.$ROUTER_NAME.tls.certresolver=letsencrypt"
       - "traefik.http.services.$ROUTER_NAME.loadbalancer.server.port=80"
+      
     networks:
       - $NETWORK_NAME
 
