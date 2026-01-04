@@ -11,6 +11,12 @@ echo "=== [whoami-test-site] Setting up whoami-test-site for $DOMAIN ==="
 # -------- CONFIG --------
 APP_DIR="$HOME/apps/websites/$ROUTER_NAME"
 
+# Validate DOMAIN
+if [[ "$DOMAIN" == "add-your-domain-here" ]] || [[ -z "$DOMAIN" ]]; then
+  echo "ERROR: DOMAIN is not set to a valid domain. Please update  DOMAIN to your actual domain in whoami-test-site-with-domain.sh"
+  exit 1
+fi
+
 if [[ ! -d "$APP_DIR" ]]; then
   echo "Creating whoami-test-site directory: $APP_DIR"
   mkdir -p "$APP_DIR"
@@ -18,11 +24,6 @@ else
   echo "Whoami-test-site directory already exists: $APP_DIR"
 fi
 
-# Validate DOMAIN
-if [[ "$DOMAIN" == "add-your-domain-here" ]] || [[ -z "$DOMAIN" ]]; then
-  echo "ERROR: DOMAIN is not set to a valid domain. Please update  DOMAIN to your actual domain in whoami-test-site-with-domain.sh"
-  exit 1
-fi
 # ------------------------
 
 echo "App directory: $APP_DIR"
