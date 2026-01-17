@@ -92,11 +92,9 @@ This will enable HTTPS via Let’s Encrypt
   - via nslookup
     - `nslookup <domain-name>`: This should return public address
 
-
-
-
-
-
+##### DNS config to Add subdomain 
+- Add below DNS records in Zone Editor for your respective domain provider
+  - Type: A, Name: subdomain-name-here, Value: <YOUR_PUBLIC_IP_FROM_ORACLE_VPS>
 
 ## Setup Reverse Proxy (Traefik)
 - Once done test in browser with `http://<public-ip>:8080` , it will display dashboard
