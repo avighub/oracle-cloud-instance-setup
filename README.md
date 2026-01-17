@@ -78,10 +78,10 @@ This will enable HTTPS via Let’s Encrypt
 - Add below DNS records in Zone Editor for your respective domain provider
   - Type: A, Name: @ , Value: <YOUR_PUBLIC_IP_FROM_ORACLE_VPS>
   - Type: A, Name: www , Value: <YOUR_PUBLIC_IP_FROM_ORACLE_VPS>
-  or
-  - Type: CNAME, Name: www , Value: <YOUR_PUBLIC_IP_FROM_ORACLE_VPS>
+  
 - Run the script to setup whoami test site to map with Domain
-  - `cd ~/apps/scripts/infra/bootstrap`
+  - `cd ~/apps/scripts/oracle-cloud-instance-setup
+/infra/bootstrap`
   - `./whoami-test-site-with-domain.sh`
   - Watch Traefik logs (important): `docker logs -f traefik`
     - This should not return any error, if it does, then it would need attention
