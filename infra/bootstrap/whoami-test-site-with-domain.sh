@@ -109,7 +109,7 @@ services:
       # 🔑 HTTP ROUTER
       - "traefik.http.routers.$ROUTER_NAME-http.rule=Host(\`$DOMAIN\`)"
       - "traefik.http.routers.$ROUTER_NAME-http.entrypoints=web"
-
+      - "traefik.http.routers.$ROUTER_NAME-http.service=$ROUTER_NAME"
       - "traefik.http.routers.$ROUTER_NAME.tls=true"
       - "traefik.http.routers.$ROUTER_NAME.tls.certresolver=letsencrypt"
       - "traefik.http.services.$ROUTER_NAME.loadbalancer.server.port=80"
