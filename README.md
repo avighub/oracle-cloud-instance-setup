@@ -95,18 +95,3 @@ This will enable HTTPS via Let’s Encrypt
 - Add below DNS records in Zone Editor for your respective domain provider
   - Type: A, Name: subdomain-name-here, Value: <YOUR_PUBLIC_IP_FROM_ORACLE_VPS>
 
-## Setup Reverse Proxy (Traefik)
-- Once done test in browser with `http://<public-ip>:8080` , it will display dashboard
-
-07-frappe-lms.sh
-•	08-backups.sh
-•	bootstrap.sh (runner for all scripts)
-•	destroy.sh (teardown helper)
-
-
-
-### Backup example (MariaDB)
-
-```bash
-docker exec -t mariadb_container_name mysqldump -u root -pYOURPASSWORD your_database > backup.sql
-```
