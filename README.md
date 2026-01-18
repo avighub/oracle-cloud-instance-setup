@@ -80,8 +80,7 @@ This will enable HTTPS via Let’s Encrypt
   - Type: A, Name: www , Value: <YOUR_PUBLIC_IP_FROM_ORACLE_VPS>
   
 - Run the script to setup whoami test site to map with Domain  
-  - `cd ~/apps/scripts/oracle-cloud-instance-setup
-/infra/bootstrap`
+  - `cd ~/apps/scripts/oracle-cloud-instance-setup/infra/bootstrap`
   - Make sure to update `whoami-test-site-with-domain.sh` with your domain name for variable `DOMAIN`
   - Run: `./whoami-test-site-with-domain.sh`
   - Watch Traefik logs (important): `docker logs -f traefik`
